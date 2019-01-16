@@ -16,9 +16,14 @@ sudo apt-get install linux-generic
 
 Download the CUDA .deb file for Linux Ubuntu 14.04 64-bit from this page: https://developer.nvidia.com/cuda-downloads
 It would be a file named similar this: cuda-repo-ubuntu1404-7-5-local_7.5-18_amd64.deb
+
+Then setup gpg keys. Note: for 16.04 fetch keys over http instead of https.
+
 Now, install it using:
 ```bash
-sudo dpkg -i cuda-repo-ubuntu1404-7-5-local_7.5-18_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
+sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
+
 sudo apt-get update
 sudo apt-get install cuda
 echo "export PATH=/usr/local/cuda/bin/:\$PATH; export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:\$LD_LIBRARY_PATH; " >>~/.bashrc && source ~/.bashrc
